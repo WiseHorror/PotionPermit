@@ -31,11 +31,11 @@
   </ItemDefinitionGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <OutputPath>H:\Games\steamapps\common\Potion Permit\BepInEx\plugins</OutputPath>
+    <OutputPath>C:\Users\diogo\source\repos\PotionPermit\AnAlchemicalCollection\bin</OutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <OutputPath>H:\Games\steamapps\common\Potion Permit\BepInEx\plugins</OutputPath>
+    <OutputPath>C:\Users\diogo\source\repos\PotionPermit\AnAlchemicalCollection\bins</OutputPath>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">

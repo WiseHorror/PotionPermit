@@ -46,8 +46,11 @@ public class Plugin : BaseUnityPlugin
     internal static int CameraZoomBacking { get; set; }
     private static ConfigEntry<bool> TimeManipulation { get; set; }
     internal static ConfigEntry<float> TimeMultiplier { get; private set; }
+    public static ConfigEntry<bool> LootManipulation { get; set; }
+    internal static ConfigEntry<float> LootMultiplier { get; private set; }
     private static TimePatches TimeInstance { get; set; }
-   
+    private static TimePatches LootInstance { get; set; }
+
     public static Resolution Resolution = new()
     {
         width = Display.main.systemWidth,
@@ -61,7 +64,8 @@ public class Plugin : BaseUnityPlugin
         Log = Logger;
         SceneManager.sceneLoaded += SceneManager_sceneLoaded;
         TimeInstance = gameObject.AddComponent<TimePatches>();
-       
+        LootInstance = gameObject.AddComponent<TimePatches>();
+
         // Display Resolution Configuration
         ModifyResolutions = Config.Bind("1. Display Settings", "Enable Custom Resolution", false, new ConfigDescription("Toggle the usage of custom resolution settings.", null, new ConfigurationManagerAttributes {Order = 101}));
         Width = Config.Bind("1. Display Settings", "Custom Width", Display.main.systemWidth, new ConfigDescription("Define the custom display width.", null, new ConfigurationManagerAttributes {Order = 100}));
@@ -104,6 +108,16 @@ public class Plugin : BaseUnityPlugin
         {
             if (!TimeManipulation.Value) return;
             TimeInstance.UpdateValues();
+        };
+
+        //Loot manipulation
+        LootManipulation = Config.Bind("8. Loot Manipulation", "Enable Loot Manipulation", true, new ConfigDescription("Enable loot manipulation.", null, new ConfigurationManagerAttributes { Order = 43 }));
+        LootManipulation.SettingChanged += (_, _) => { LootInstance.enabled = LootManipulation.Value; };
+        LootMultiplier = Config.Bind("8. Loot Manipulation", "Loot Multiplier", 1.0f, new ConfigDescription("Set the loot multiplier.", new AcceptableValueRange<float>(1, 10), new ConfigurationManagerAttributes { ShowRangeAsPercent = false, Order = 42 }));
+        LootMultiplier.SettingChanged += (_, _) =>
+        {
+            if (!LootManipulation.Value) return;
+            LootInstance.UpdateValues();
         };
     }
 
