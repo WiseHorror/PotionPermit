@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using ChemistBattleAI;
+using HarmonyLib;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace AnAlchemicalCollection;

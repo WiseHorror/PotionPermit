@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using ChemistBattleAI;
+using GlobalEnum;
 using HarmonyLib;
 
 namespace AnAlchemicalCollection;

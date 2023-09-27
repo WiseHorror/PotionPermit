@@ -27,11 +27,11 @@
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <OutputPath>H:\Games\steamapps\common\Potion Permit\BepInEx\scripts</OutputPath>
+    <OutputPath>C:\Users\diogo\source\repos\PotionPermit\AnAlchemicalCollection\bin</OutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <OutputPath>H:\Games\steamapps\common\Potion Permit\BepInEx\scripts</OutputPath>
+    <OutputPath>C:\Users\diogo\source\repos\PotionPermit\AnAlchemicalCollection\bin</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
